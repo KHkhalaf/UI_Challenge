@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="UI_Challenge.Views.ProductDisplay"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    mc:Ignorable="d">
+
+    <pancake:PancakeView
+        Margin="10"
+        BackgroundColor="{Binding HeroColor}"
+        CornerRadius="20"
+        HasShadow="True"
+        WidthRequest="160">
+        <pancake:PancakeView.GestureRecognizers>
+            <TapGestureRecognizer Tapped="TapProductGestureRecognizer_Tapped" />
+        </pancake:PancakeView.GestureRecognizers>
+
+
+        <Grid>
+            <BoxView
+                x:Name="AddBackground"
+                CornerRadius="0,0,20,0"
+                HeightRequest="40"
+                HorizontalOptions="End"
+                Opacity=".5"
+                VerticalOptions="Start"
+                WidthRequest="40"
+                Color="White" />
+
+            <Label
+                x:Name="AddButton"
+                FontSize="20"
+                HeightRequest="40"
+                HorizontalOptions="End"
+                HorizontalTextAlignment="Center"
+                Text="+"
+                TextColor="White"
+                VerticalOptions="Start"
+                VerticalTextAlignment="Center"
+                WidthRequest="40">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapAddProductGestureRecognizer_Tapped" />
+                </Label.GestureRecognizers>
+            </Label>
+
+            <StackLayout
+                CascadeInputTransparent="True"
+                InputTransparent="True"
+                Orientation="Vertical"
+                Spacing="0">
+                <Label
+                    x:Name="NameLabel"
+                    Margin="10,10,0,0"
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    Style="{StaticResource HeaderFontMedium}"
+                    Text="{Binding Name}"
+                    TextColor="White" />
+
+                <StackLayout
+                    x:Name="PriceLabel"
+                    Margin="10,0"
+                    Padding="0"
+                    Orientation="Horizontal"
+                    Spacing="0">
+                    <Label
+                        FontSize="14"
+                        Text="$"
+                        TextColor="White"
+                        TranslationY="10"
+                        VerticalOptions="Start" />
+                    <Label
+                        FontSize="40"
+                        Text="{Binding Price}"
+                        TextColor="White"
+                        VerticalOptions="Start"
+                        VerticalTextAlignment="Start" />
+                </StackLayout>
+            </StackLayout>
+
+            <Image
+                x:Name="ProductImage"
+                HorizontalOptions="Center"
+                InputTransparent="True"
+                Source="{Binding ImageUrl}"
+                VerticalOptions="Start" />
+
+        </Grid>
+    </pancake:PancakeView>
+</ContentView>

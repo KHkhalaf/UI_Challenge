@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="UI_Challenge.App">
+
+    <Application.Resources>
+        <!--  Colors  -->
+        <Color x:Key="ThemeColor">#EF3D55</Color>
+        <Color x:Key="DropDownColor2">#36476a</Color>
+        <Color x:Key="DropDownColor1">#41557e</Color>
+        <Color x:Key="NavigationBarColor">#f5775b</Color>
+        <Color x:Key="PageBackgroundColor">#3b4d72</Color>
+        <Color x:Key="CellBackgroundColor">#405175</Color>
+        <Color x:Key="MainTextColor">#FFFFFF</Color>
+        <Color x:Key="YouTextColor">#B9B7C3</Color>
+        <Color x:Key="LocationTextColor">#818BA1</Color>
+        <Color x:Key="SecondaryTextColor">#5F6574</Color>
+        <Color x:Key="SubTextColor">#B9BCC3</Color>
+        <Color x:Key="ButtonColor">#5ACB6E</Color>
+        <Color x:Key="PageColor">#F5F7F9</Color>
+        <Color x:Key="ButtonBackgroundColor">#eef5f7</Color>
+        <Color x:Key="TextColor">#313643</Color>
+        <Color x:Key="LightTextColor">#B2B2B2</Color>
+        <Color x:Key="LightColor">LightGray</Color>
+
+        <!--  font families  -->
+        <OnPlatform x:Key="HeaderFontMarvelCards" x:TypeArguments="x:String">
+            <On Platform="Android" Value="MontserratAlternates-Bold.ttf#MontserratAlternates-Bold" />
+            <On Platform="iOS" Value="MontserratAlternates-Bold" />
+        </OnPlatform>
+        <OnPlatform x:Key="BodyFontMarvelCards" x:TypeArguments="x:String">
+            <On Platform="Android" Value="MontserratAlternates-Medium.ttf#MontserratAlternates-Medium" />
+            <On Platform="iOS" Value="MontserratAlternates-Medium" />
+        </OnPlatform>
+
+        <OnPlatform x:Key="HeaderFont" x:TypeArguments="x:String">
+            <On Platform="Android" Value="FrankRuhlLibre-Regular.ttf#FrankRuhlLibre-Regular" />
+            <On Platform="iOS" Value="FrankRuhlLibre-Regular" />
+        </OnPlatform>
+        <OnPlatform x:Key="BodyFont" x:TypeArguments="x:String">
+            <On Platform="Android" Value="OpenSans-Regular.ttf#Open Sans" />
+            <On Platform="iOS" Value="OpenSans-Regular" />
+        </OnPlatform>
+        
+        <OnPlatform x:Key="FontAwesome5FreeRegular" x:TypeArguments="x:String">
+            <On Platform="iOS" Value="FontAwesome5Free-Regular" />
+            <On Platform="Android" Value="far.otf#Regular" />
+        </OnPlatform>
+        <OnPlatform x:Key="FontAwesome5FreeSolid" x:TypeArguments="x:String">
+            <On Platform="iOS" Value="FontAwesome5Free-Solid" />
+            <On Platform="Android" Value="fas.otf#Solid" />
+        </OnPlatform>
+        <OnPlatform x:Key="MontserratMedium" x:TypeArguments="x:String">
+            <On Platform="iOS" Value="Montserrat-Medium" />
+            <On Platform="Android" Value="Montserrat-Medium.ttf#Regular" />
+        </OnPlatform>
+        <OnPlatform x:Key="MontserratLight" x:TypeArguments="x:String">
+            <On Platform="iOS" Value="Montserrat-Light" />
+            <On Platform="Android" Value="Montserrat-Light.ttf#Regular" />
+        </OnPlatform>
+
+        <!--  Styles  -->
+
+        <Style x:Key="HeaderMarvelCards" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource HeaderFontMarvelCards}" />
+            <Setter Property="FontSize" Value="60" />
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+        <Style x:Key="SubHeader" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource HeaderFontMarvelCards}" />
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+        <Style x:Key="LearnMore" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource BodyFontMarvelCards}" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="TextColor" Value="#FFB854" />
+        </Style>
+        <Style x:Key="TitleHeader" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource BodyFontMarvelCards}" />
+            <Setter Property="FontSize" Value="26" />
+            <Setter Property="TextColor" Value="Black" />
+        </Style>
+
+        <Style x:Key="BioText" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource BodyFontMarvelCards}" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="TextColor" Value="#716F6F" />
+        </Style>
+        
+        <Style x:Key="Header" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource HeaderFont}" />
+            <Setter Property="FontSize" Value="40" />
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="Margin" Value="35,35,35,0" />
+        </Style>
+
+        <Style x:Key="Body" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource BodyFont}" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="LineHeight" Value="1.3" />
+            <Setter Property="TextColor" Value="#707070" />
+            <Setter Property="Margin" Value="35,0,35,35" />
+        </Style>
+
+        <Style x:Key="Menu" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource BodyFont}" />
+            <Setter Property="FontSize" Value="8" />
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+        
+        <OnPlatform x:Key="BoldFont" x:TypeArguments="x:String">
+            <On Platform="Android" Value="OpenSans-Bold.ttf#Open Sans" />
+            <On Platform="iOS" Value="OpenSans-Bold" />
+        </OnPlatform>
+        <OnPlatform x:Key="RegularFont" x:TypeArguments="x:String">
+            <On Platform="Android" Value="OpenSans-Regular.ttf#Open Sans" />
+            <On Platform="iOS" Value="OpenSans-Regular" />
+        </OnPlatform>
+        <OnPlatform x:Key="LightFont" x:TypeArguments="x:String">
+            <On Platform="Android" Value="OpenSans-Light.ttf#Open Sans" />
+            <On Platform="iOS" Value="OpenSans-Light" />
+        </OnPlatform>
+
+        <Style x:Key="NameLabelStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource RegularFont}" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="TextColor" Value="{StaticResource MainTextColor}" />
+        </Style>
+
+
+        <Style x:Key="YouNameLabelStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource RegularFont}" />
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="TextColor" Value="{StaticResource YouTextColor}" />
+        </Style>
+
+        <Style x:Key="TimeLabelStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource BoldFont}" />
+            <Setter Property="FontSize" Value="40" />
+            <Setter Property="TextColor" Value="{StaticResource MainTextColor}" />
+        </Style>
+
+        <Style x:Key="YouTimeLabelStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource BoldFont}" />
+            <Setter Property="FontSize" Value="45" />
+            <Setter Property="TextColor" Value="{StaticResource YouTextColor}" />
+        </Style>
+
+        <Style x:Key="LocationLabelStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource RegularFont}" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="TextColor" Value="{StaticResource LocationTextColor}" />
+        </Style>
+
+        <Style x:Key="AmPmLabelStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource BoldFont}" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="TextColor" Value="{StaticResource MainTextColor}" />
+        </Style>
+
+        <Style x:Key="YouAmPmLabelStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource BoldFont}" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="TextColor" Value="{StaticResource YouTextColor}" />
+        </Style>
+
+        <Style x:Key="PopupLabelStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource RegularFont}" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="TextColor" Value="{StaticResource MainTextColor}" />
+        </Style>
+
+        <Style x:Key="InfoLabelStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource RegularFont}" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="TextColor" Value="{StaticResource MainTextColor}" />
+        </Style>
+
+        <Style TargetType="NavigationPage">
+            <Setter Property="BarBackgroundColor" Value="#F5775B" />
+            <Setter Property="BarTextColor" Value="White" />
+        </Style>
+
+        <Style x:Key="MovieName" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource BoldFont}" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}" />
+        </Style>
+
+        <Style x:Key="Rating" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource BoldFont}" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}" />
+        </Style>
+        <Style x:Key="SubText" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource RegularFont}" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="TextColor" Value="{StaticResource SubTextColor}" />
+        </Style>
+        <Style x:Key="ButtonText" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource BoldFont}" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+        <Style x:Key="TabLabel" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource RegularFont}" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="TextColor" Value="{StaticResource SubTextColor}" />
+        </Style>
+        <Style x:Key="SelectedTabLabel" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource BoldFont}" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}" />
+        </Style>
+        
+        <Style x:Key="HeaderFontLight" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource MontserratLight}" />
+            <Setter Property="FontSize" Value="28" />
+            <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+        </Style>
+        <Style x:Key="HeaderFontMedium" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource MontserratMedium}" />
+            <Setter Property="FontSize" Value="28" />
+            <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+        </Style>
+
+        <Style x:Key="BodyFontMedium" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource MontserratMedium}" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="TextColor" Value="{StaticResource LightTextColor}" />
+        </Style>
+
+        <Style x:Key="BodyFontLight" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource MontserratLight}" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="TextColor" Value="{StaticResource LightTextColor}" />
+        </Style>
+
+
+        <Style x:Key="CommandButtonStyle" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{StaticResource ButtonBackgroundColor}" />
+            <Setter Property="CornerRadius" Value="14" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="HeightRequest" Value="48" />
+            <Setter Property="WidthRequest" Value="48" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
+
+        <Style x:Key="ButtonStyle" TargetType="ImageButton">
+            <Setter Property="BackgroundColor" Value="{StaticResource ButtonBackgroundColor}" />
+            <Setter Property="WidthRequest" Value="48" />
+            <Setter Property="HeightRequest" Value="48" />
+            <Setter Property="CornerRadius" Value="14" />
+        </Style>
+
+        <!--  implicit styles (applies to all elements of TargetType)  -->
+        <Style TargetType="Grid">
+            <Setter Property="RowSpacing" Value="0" />
+            <Setter Property="ColumnSpacing" Value="0" />
+        </Style>
+
+        <Style TargetType="StackLayout">
+            <Setter Property="Spacing" Value="0" />
+        </Style>
+    </Application.Resources>
+</Application>

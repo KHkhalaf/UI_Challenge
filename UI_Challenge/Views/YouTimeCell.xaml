@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="UI_Challenge.Views.YouTimeCell">
+    <ContentView.Content>
+        <Grid BackgroundColor="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="AUTO" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="AUTO" />
+            </Grid.ColumnDefinitions>
+
+            <Image
+                Margin="20"
+                HeightRequest="30"
+                HorizontalOptions="Center"
+                Source="sun.png"
+                VerticalOptions="Center"
+                WidthRequest="30" />
+
+
+            <Label
+                Grid.Column="1"
+                Style="{StaticResource YouNameLabelStyle}"
+                Text="You"
+                VerticalOptions="Center" />
+
+            <StackLayout
+                Grid.Column="2"
+                Margin="0,0,20,0"
+                Orientation="Horizontal">
+                <Label x:Name="youlbl"
+                    Style="{StaticResource YouTimeLabelStyle}"
+                    Text="{Binding CurrentTime}"
+                    VerticalOptions="Center" />
+                <Label x:Name="PMAMlbl"
+                    Margin="0,-30,0,0"
+                    Style="{StaticResource YouAmPmLabelStyle}"
+                    VerticalOptions="Center" />
+            </StackLayout>
+
+
+        </Grid>
+
+    </ContentView.Content>
+</ContentView>

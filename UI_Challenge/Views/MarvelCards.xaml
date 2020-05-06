@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:views="clr-namespace:UI_Challenge.Views"
+             ios:Page.PreferredStatusBarUpdateAnimation="Fade"
+             ios:Page.PrefersHomeIndicatorAutoHidden="true"
+             ios:Page.PrefersStatusBarHidden="True"
+             mc:Ignorable="d"
+             x:Class="UI_Challenge.Views.MarvelCards">
+
+    <Grid>
+        <cards:CardsView
+            x:Name="MainCardView"
+            IsCyclical="True"
+            ItemsSource="{Binding Heroes}">
+            <cards:CardsView.ItemTemplate>
+                <DataTemplate>
+                    <views:HeroCard Margin="0,0,0,-30" />
+                </DataTemplate>
+            </cards:CardsView.ItemTemplate>
+        </cards:CardsView>
+
+        <Label
+            x:Name="MoviesHeader"
+            Margin="{OnPlatform iOS=30,
+                                Default=10}"
+            HorizontalOptions="Center"
+            Style="{StaticResource TitleHeader}"
+            Text="movies"
+            VerticalOptions="Start" />
+        <Image
+            x:Name="BackArrow"
+            Margin="{OnPlatform iOS='40,33,0,0',
+                                Default='40,15,0,0'}"
+            HorizontalOptions="Start"
+            Source="back_arrow_simple"
+            VerticalOptions="Start">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="BackArrowTapGestureRecognizer_Tapped" />
+            </Image.GestureRecognizers>
+        </Image>
+
+    </Grid>
+</ContentPage>

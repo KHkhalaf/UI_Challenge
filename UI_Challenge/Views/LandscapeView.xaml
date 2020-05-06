@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="UI_Challenge.Views.LandscapeView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:rainbows="clr-namespace:Xamarin.Forms.DebugRainbows;assembly=Xamarin.Forms.DebugRainbows"
+    xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+    mc:Ignorable="d">
+
+    <Grid
+        rainbows:DebugRainbow.IsDebug="False"
+        ColumnSpacing="0"
+        RowSpacing="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="225" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <skia:SKCanvasView
+            x:Name="ImageSkiaCanvas"
+            Grid.RowSpan="2"
+            Grid.ColumnSpan="2"
+            BackgroundColor="White"
+            HorizontalOptions="Fill"
+            PaintSurface="SKCanvasView_PaintSurface"
+            VerticalOptions="Fill" />
+
+        <skia:SKCanvasView
+            x:Name="SideBarCanvas"
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            EnableTouchEvents="True"
+            PaintSurface="SideBarCanvas_PaintSurface"
+            Touch="SideBarCanvas_Touch" />
+
+        <Image
+            Margin="15,10"
+            HorizontalOptions="Start"
+            Source="mountain_icon_landscape"
+            VerticalOptions="Start" />
+
+        <BoxView
+            Grid.Row="0"
+            Grid.Column="1"
+            Margin="-70,0,-30,0"
+            HeightRequest="1.5"
+            HorizontalOptions="Fill"
+            VerticalOptions="End"
+            Color="#999999" />
+
+        <Label
+            x:Name="Heading1"
+            Grid.ColumnSpan="2"
+            FontSize="60"
+            Style="{StaticResource Header}"
+            VerticalOptions="End" />
+
+        <Label
+            x:Name="Body1"
+            Grid.Row="1"
+            Margin="30,30,70,0"
+            FontSize="10"
+            InputTransparent="True"
+            Style="{StaticResource Body}" />
+
+        <Label
+            x:Name="Heading2"
+            Grid.ColumnSpan="2"
+            FontSize="60"
+            Opacity="0"
+            Style="{StaticResource Header}"
+            VerticalOptions="End" />
+
+        <Label
+            x:Name="Body2"
+            Grid.Row="1"
+            Margin="30,30,70,0"
+            FontSize="10"
+            InputTransparent="True"
+            Opacity="0"
+            Style="{StaticResource Body}" />
+
+        <StackLayout
+            Grid.Column="1"
+            Padding="12"
+            HorizontalOptions="End"
+            Orientation="Horizontal"
+            Spacing="12"
+            VerticalOptions="Start">
+
+            <Label Style="{StaticResource Menu}" Text="About" />
+            <Label Style="{StaticResource Menu}" Text="Locations" />
+            <Label Style="{StaticResource Menu}" Text="Bookings" />
+            <Label Style="{StaticResource Menu}" Text="Contact" />
+
+        </StackLayout>
+
+
+
+    </Grid>
+
+</ContentView>

@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="UI_Challenge.Views.DetailsSection">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label
+                x:Name="CastTab"
+                Grid.Column="0"
+                Style="{StaticResource SelectedTabLabel}"
+                Text="Cast">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Label.GestureRecognizers>
+            </Label>
+            <Label
+                x:Name="InfoTab"
+                Grid.Column="1"
+                Style="{StaticResource TabLabel}"
+                Text="Info">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label
+                x:Name="NewsTab"
+                Grid.Column="2"
+                Style="{StaticResource TabLabel}"
+                Text="News">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Label.GestureRecognizers>
+            </Label>
+            <Label
+                x:Name="CriticsTab"
+                Grid.Column="3"
+                Style="{StaticResource TabLabel}"
+                Text="Critics">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Label.GestureRecognizers>
+            </Label>
+            <Label
+                x:Name="MediaTab"
+                Grid.Column="4"
+                Style="{StaticResource TabLabel}"
+                Text="Media">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Label.GestureRecognizers>
+            </Label>
+        </Grid>
+
+        <BoxView
+            Grid.Row="1"
+            HeightRequest="1"
+            VerticalOptions="Center"
+            Color="{StaticResource SubTextColor}" />
+        <BoxView
+            x:Name="SelectionUnderline"
+            Grid.Row="1"
+            CornerRadius="2"
+            HeightRequest="5"
+            HorizontalOptions="Start"
+            WidthRequest="40"
+            Color="Orange" />
+
+        <Grid
+            x:Name="InfoContent"
+            Grid.Row="2"
+            IsVisible="True"
+            Opacity="0">
+            <Label
+                Margin="10"
+                FontSize="14"
+                Style="{StaticResource SubText}"
+                Text="{Binding CurrentMovie.Info}" >
+
+                <Label.GestureRecognizers>
+                    <SwipeGestureRecognizer Swiped="SwipeGestureRecognizer_Swiped" Direction="Left"/>
+                    <SwipeGestureRecognizer Swiped="SwipeGestureRecognizer_Swiped" Direction="Right"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </Grid>
+        
+        <Grid
+            x:Name="CastContent"
+            Grid.Row="2"
+            IsVisible="True"
+            Opacity="1">
+            <ListView 
+                BackgroundColor="Transparent"
+                HasUnevenRows="True"
+                ItemsSource="{Binding CurrentMovie.Cast}"
+                SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="8">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Frame
+                                    Padding="0"
+                                    CornerRadius="30"
+                                    HasShadow="False"
+                                    HeightRequest="60"
+                                    IsClippedToBounds="True"
+                                    WidthRequest="60">
+                                    <Image Aspect="AspectFill" Source="{Binding ImageUrl}" />
+                                </Frame>
+                                <StackLayout Grid.Column="1" VerticalOptions="Center" Padding="15,0,0,0">
+                                    <Label Style="{StaticResource MovieName}" Text="{Binding Name}" />
+                                    <Label Style="{StaticResource SubText}" Text="{Binding Role}" />
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+        
+        <Grid
+            x:Name="NewsContent"
+            Grid.Row="2"
+            IsVisible="False"
+            Opacity="0">
+            <Label
+                Margin="10"
+                FontSize="14"
+                Style="{StaticResource SubText}"
+                Text="{Binding CurrentMovie.Info}" >
+
+                <Label.GestureRecognizers>
+                    <SwipeGestureRecognizer Swiped="SwipeGestureRecognizer_Swiped" Direction="Left"/>
+                    <SwipeGestureRecognizer Swiped="SwipeGestureRecognizer_Swiped" Direction="Right"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </Grid>
+
+        <Grid
+            x:Name="CriticsContent"
+            Grid.Row="2"
+            IsVisible="False"
+            Opacity="0">
+            <Label
+                Margin="10"
+                FontSize="14"
+                Style="{StaticResource SubText}"
+                Text="{Binding CurrentMovie.Info}" >
+
+                <Label.GestureRecognizers>
+                    <SwipeGestureRecognizer Swiped="SwipeGestureRecognizer_Swiped" Direction="Left"/>
+                    <SwipeGestureRecognizer Swiped="SwipeGestureRecognizer_Swiped" Direction="Right"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </Grid>
+
+        <Grid
+            x:Name="MediaContent"
+            Grid.Row="2"
+            IsVisible="False"
+            Opacity="0">
+            <Label
+                Margin="10"
+                FontSize="14"
+                Style="{StaticResource SubText}"
+                Text="{Binding CurrentMovie.Info}" >
+
+                <Label.GestureRecognizers>
+                    <SwipeGestureRecognizer Swiped="SwipeGestureRecognizer_Swiped" Direction="Left"/>
+                    <SwipeGestureRecognizer Swiped="SwipeGestureRecognizer_Swiped" Direction="Right"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </Grid>
+
+
+    </Grid>
+</ContentView>

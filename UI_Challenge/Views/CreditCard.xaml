@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:fastEntry="clr-namespace:XamarinFastEntrySample.FastEntry;assembly=XamarinFastEntry.Behaviors"
+             mc:Ignorable="d"
+             x:Class="UI_Challenge.Views.CreditCard">
+    <Grid VerticalOptions="FillAndExpand"
+          ColumnSpacing="20"
+          RowSpacing="30"
+          HorizontalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Column="0"
+               Grid.ColumnSpan="3"
+               Text="please enter your information and move to next"
+               HorizontalTextAlignment="Center"
+               FontSize="Large"
+               TextColor="Black"
+               FontFamily="{StaticResource MontserratMedium}"/>
+        
+        <Frame HasShadow="false"
+               Padding="5"
+               CornerRadius="10"
+               BorderColor="{StaticResource LightColor}"
+               Margin="30,10,30,10"
+               Grid.Row="1"
+               Grid.Column="0"
+               Grid.ColumnSpan="3">
+            <StackLayout Orientation="Horizontal"
+                         Spacing="20">
+                <Image Source="nocards"
+                       HeightRequest="30"/>
+
+                <Entry HorizontalOptions="FillAndExpand"
+                       Keyboard="Numeric"
+                       Placeholder="0000-0000-0000-0000"
+                       Visual="Custom">
+                    <Entry.Behaviors>
+                        <fastEntry:XamarinFastEntryBehaviour Mask="####-####-####-####" 
+                                                             MaxLength="19"/>
+                    </Entry.Behaviors>
+                </Entry>
+            </StackLayout>
+        </Frame>
+
+        <Frame HasShadow="false"
+               Padding="5"
+               CornerRadius="10"
+               BorderColor="{StaticResource LightColor}"
+               Margin="30,0,0,0"
+               Grid.Row="2"
+               Grid.Column="0"
+               Grid.ColumnSpan="2">
+            <StackLayout Orientation="Horizontal">
+                <Image Source="ic_date"
+                       HeightRequest="25"/>
+                <Entry HorizontalOptions="FillAndExpand"
+                       Keyboard="Numeric"
+                       Placeholder="00/00"
+                       Visual="Custom">
+                    <Entry.Behaviors>
+                        <fastEntry:XamarinFastEntryBehaviour Mask="##/##" 
+                                                             MaxLength="19"/>
+                    </Entry.Behaviors>
+                </Entry>
+            </StackLayout>
+        </Frame>
+
+        <Frame HasShadow="false"
+               Padding="5"
+               CornerRadius="10"
+               BorderColor="{StaticResource LightColor}"
+               Margin="0,0,30,0"
+               Grid.Row="2"
+               Grid.Column="2">
+            <StackLayout Orientation="Horizontal">
+                <Image Source="ic_cvv"
+                       HeightRequest="25"/>
+                <Entry HorizontalOptions="FillAndExpand"
+                       Keyboard="Numeric"
+                       Placeholder="000"
+                       Visual="Custom">
+                    <Entry.Behaviors>
+                        <fastEntry:XamarinFastEntryBehaviour Mask="###" 
+                                                             MaxLength="3"/>
+                    </Entry.Behaviors>
+                </Entry>
+            </StackLayout>
+        </Frame>
+        <StackLayout Grid.Column="0"
+                     Grid.ColumnSpan="3"
+                     Grid.Row="4"
+                     VerticalOptions="End"
+                     Orientation="Horizontal"
+                     HorizontalOptions="Center"
+                     Spacing="56">
+            <Button Text="back"
+                    BackgroundColor="#4eae78"
+                    TextColor="White"
+                    CornerRadius="15"
+                    HorizontalOptions="Start"
+                    Clicked="Back_Clicked"/>
+            <Button Text="next"
+                    BackgroundColor="#4eae78"
+                    TextColor="White"
+                    CornerRadius="15"
+                    HorizontalOptions="EndAndExpand"
+                    Clicked="Next_Clicked"/>
+        </StackLayout>
+    </Grid>
+</ContentView>

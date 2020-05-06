@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:views="clr-namespace:UI_Challenge.Views"
+             xmlns:converters="clr-namespace:UI_Challenge.Converters"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:viewmodels="clr-namespace:UI_Challenge.ViewModels"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
+             BackgroundColor="White"
+             x:Class="UI_Challenge.Views.IcelandMoss">
+
+    <ContentPage.BindingContext>
+        <viewmodels:MainViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:BoolToStringConverter
+                x:Key="FeaturedHeightConverter"
+                FalseString="170"
+                TrueString="240" />
+
+            <converters:BoolToStringConverter
+                x:Key="FeaturedOffsetYConverter"
+                FalseString="40"
+                TrueString="100" />
+
+            <converters:BoolToStringConverter
+                x:Key="FeaturedOffsetXConverter"
+                FalseString="60"
+                TrueString="60" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <AbsoluteLayout>
+        <ImageButton
+            x:Name="HamburgerButton"
+            Padding="10"
+            AbsoluteLayout.LayoutBounds="20,20,48,48"
+            Style="{StaticResource ButtonStyle}"
+            Clicked="HamburgerButton_Clicked"
+            Source="hamburger_icon" />
+
+        <ImageButton
+            x:Name="BasketIcon"
+            Padding="10"
+            AbsoluteLayout.LayoutBounds="340,20,48,48"
+            Clicked="BasketIcon_Clicked"
+            Source="basket_icon"
+            Style="{StaticResource ButtonStyle}" />
+
+        <pancake:PancakeView
+            AbsoluteLayout.LayoutBounds="380,20,14,14"
+            BackgroundColor="Black"
+            CornerRadius="7">
+            <pancake:PancakeView.Triggers>
+                <DataTrigger
+                    Binding="{Binding ShoppingCart.ItemCount}"
+                    TargetType="pancake:PancakeView"
+                    Value="0">
+                    <Setter Property="IsVisible" Value="False" />
+                </DataTrigger>
+            </pancake:PancakeView.Triggers>
+            <Label
+                FontSize="10"
+                HorizontalOptions="Center"
+                Text="{Binding ShoppingCart.ItemCount}"
+                TextColor="White"
+                VerticalOptions="Center" />
+        </pancake:PancakeView>
+
+        <StackLayout x:Name="Header" AbsoluteLayout.LayoutBounds="20,100,340,100">
+            <Label Style="{StaticResource HeaderFontLight}" Text="Choose your new" />
+            <Label Style="{StaticResource HeaderFontMedium}" Text="green friend" />
+        </StackLayout>
+
+
+        <BoxView
+            x:Name="SearchBackground"
+            AbsoluteLayout.LayoutBounds="20, 200, 300, 48"
+            BackgroundColor="{StaticResource ButtonBackgroundColor}"
+            CornerRadius="10" />
+
+        <ImageButton
+            x:Name="SearchIcon"
+            Padding="14"
+            AbsoluteLayout.LayoutBounds="20,200,48,48"
+            BackgroundColor="Transparent"
+            Source="search_icon"
+            Style="{StaticResource ButtonStyle}" />
+
+        <Entry
+            x:Name="SearchEntry"
+            AbsoluteLayout.LayoutBounds="60, 200, 240, 48"
+            Placeholder="Search" />
+
+        <ImageButton
+            x:Name="SettingsIcon"
+            Padding="14"
+            AbsoluteLayout.LayoutBounds="340,200,48,48"
+            Source="settings_icon"
+            Style="{StaticResource ButtonStyle}" />
+
+        <ScrollView x:Name="ScrollContainer" AbsoluteLayout.LayoutBounds="20,300, 380, 300">
+
+            <FlexLayout
+                BindableLayout.ItemsSource="{Binding Products}"
+                Direction="Column"
+                HeightRequest="1300"
+                HorizontalOptions="Center"
+                Wrap="Wrap">
+
+                <BindableLayout.ItemTemplate>
+
+                    <DataTemplate>
+                        <views:ProductDisplay
+                            AddToCartClicked="ProductDisplay_AddToCartClicked"
+                            HeightRequest="{Binding IsFeatured, Converter={StaticResource FeaturedHeightConverter}}"
+                            ImageOffsetX="{Binding IsFeatured, Converter={StaticResource FeaturedOffsetXConverter}}"
+                            ImageOffsetY="{Binding IsFeatured, Converter={StaticResource FeaturedOffsetYConverter}}"
+                            ProductClicked="TapGestureRecognizer_Tapped">
+
+                            <!--<controls:ProductDisplay.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                            </controls:ProductDisplay.GestureRecognizers>-->
+                        </views:ProductDisplay>
+                    </DataTemplate>
+
+                </BindableLayout.ItemTemplate>
+
+            </FlexLayout>
+        </ScrollView>
+        <views:ProductDisplay x:Name="FakeProductCell" IsVisible="False">
+            <views:ProductDisplay.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
+            </views:ProductDisplay.GestureRecognizers>
+        </views:ProductDisplay>
+
+        <views:ProductDisplayPopover
+            x:Name="PagePopover"
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutFlags="All"
+            IsVisible="False" 
+            AddToCartClicked="PagePopover_AddToCartClicked"/>
+
+        <views:ShoppingCartPopover
+            x:Name="CartPopover"
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutFlags="All"
+            IsVisible="False" />
+    </AbsoluteLayout>
+</ContentPage>

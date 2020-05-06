@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell  xmlns="http://xamarin.com/schemas/2014/forms"
+        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+        xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        x:Class="UI_Challenge.Views.AppShell"
+        xmlns:views="clr-namespace:UI_Challenge.Views"
+        FlyoutHeaderBehavior="CollapseOnScroll"
+        Shell.NavBarIsVisible="False">
+
+    <Shell.Resources>
+        <Style x:Key="ItemStyle" TargetType="StackLayout">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal" />
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="#f8a5b5"/>
+                            </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+    </Shell.Resources>
+    
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <ContentView BackgroundColor="{StaticResource ThemeColor}" HeightRequest="200">
+                <Image Source="xamarin_logo.png" Margin="10"
+                    HorizontalOptions="Center" VerticalOptions="Center"/>
+            </ContentView>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <StackLayout Orientation="Horizontal" Padding="0,15,0,0" Style="{StaticResource ItemStyle}">
+                <Image Margin="30,10,20,10" Source="{Binding Icon}" WidthRequest="22" HeightRequest="22" HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Label Text="{Binding Title}" TextColor="#686868" FontSize="16" VerticalOptions="Center"/>
+            </StackLayout>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+
+    <FlyoutItem Title="UnZone" Icon="home.png">
+        <ShellContent ContentTemplate="{DataTemplate views:UnZone}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="RottenUI" Icon="briefcase.png">
+        <ShellContent ContentTemplate="{DataTemplate views:RottenUI}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Mountain" Icon="article.png">
+        <ShellContent ContentTemplate="{DataTemplate views:SlideShowPage}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Iceland Moss" Icon="photo.png">
+        <ShellContent ContentTemplate="{DataTemplate views:IcelandMoss}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Marvel Cards" Icon="profile.png">
+        <ShellContent ContentTemplate="{DataTemplate views:MarvelCards}"/>
+    </FlyoutItem>
+</Shell>
