@@ -7,7 +7,40 @@
 </p>
 ------------------------------------------------------------------
 -----------------------------------------------------------------
+<h1 align="center"><Strong>UnZone Page<strong/></h1>
 <p align="center">
-  <img width="350" height="600" src="https://github.com/KHkhalaf/UI_Challenge/blob/master/UnZone.gif"/>
+  <img width="550" height="600" src="https://github.com/KHkhalaf/UI_Challenge/blob/master/UnZone.gif"/>
 </p>
+------------------------------------------------------------------
+-----------------------------------------------------------------
+<h1 align="center"><Strong>RottenUI Page<strong/></h1>
+<p align="center">
+  <img width="550" height="600" src="https://github.com/KHkhalaf/UI_Challenge/blob/master/screenshot_.png"/>
+</p>
+
+------------------------------------------------------------------
+-----------------------------------------------------------------
+<h1 align="center"><Strong>mountain Page (mobile) <strong/></h1>
+<p align="center">
+  <img width="750" height="600" src="https://github.com/KHkhalaf/UI_Challenge/blob/master/mountain-homepage-mobile.gif"/>
+</p>
+------------------------------------------------------------------
+-----------------------------------------------------------------
+<h1 align="center"><Strong>mountain Page (landscape) <strong/></h1>
+<p align="center">
+  <img width="650" height="600" src="https://github.com/KHkhalaf/UI_Challenge/blob/master/mountain-homepage-2.gif"/>
+</p>
+------------------------------------------------------------------
+-----------------------------------------------------------------
+<h1 align="center"><Strong>Iceland Moss Page  <strong/> (recommended you check it out on dribbble by clicking on the image)</h1>
+<p align="center">
+ <a href="https://dribbble.com/shots/6761155-Mobile-app-Iceland-moss"> <img width="650" height="600" src="https://github.com/KHkhalaf/UI_Challenge/blob/master/Screenshot_1.png"/>
+   </p></a>
+------------------------------------------------------------------
+-----------------------------------------------------------------
+<h1 align="center"><Strong>Marvel Cards Page  <strong/> (recommended you check it out on dribbble by clicking on the image)</h1>
+<p align="center">
+ <a href="https://dribbble.com/shots/5935613-Marvel-Movies-Interaction"> <img width="550" height="600" src="https://github.com/KHkhalaf/UI_Challenge/blob/master/Screenshot_2.png"/>
+   </p></a>
+
 
