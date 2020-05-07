@@ -34,13 +34,13 @@
 -----------------------------------------------------------------
 <h1 align="center"><Strong>Iceland Moss Page  <strong/> (recommended you check it out on dribbble by clicking on the image)</h1>
 <p align="center">
- <a href="https://dribbble.com/shots/6761155-Mobile-app-Iceland-moss"> <img width="650" height="600" src="https://github.com/KHkhalaf/UI_Challenge/blob/master/Screenshot_1.png"/>
+ <a href="https://dribbble.com/shots/6761155-Mobile-app-Iceland-moss" target="_blank"> <img width="650" height="600" src="https://github.com/KHkhalaf/UI_Challenge/blob/master/Screenshot_1.png"/>
    </p></a>
 ------------------------------------------------------------------
 -----------------------------------------------------------------
 <h1 align="center"><Strong>Marvel Cards Page  <strong/> (recommended you check it out on dribbble by clicking on the image)</h1>
 <p align="center">
- <a href="https://dribbble.com/shots/5935613-Marvel-Movies-Interaction"> <img width="550" height="600" src="https://github.com/KHkhalaf/UI_Challenge/blob/master/Screenshot_2.png"/>
+ <a href="https://dribbble.com/shots/5935613-Marvel-Movies-Interaction" target="_blank"> <img width="550" height="600" src="https://github.com/KHkhalaf/UI_Challenge/blob/master/Screenshot_2.png"/>
    </p></a>
 
 
